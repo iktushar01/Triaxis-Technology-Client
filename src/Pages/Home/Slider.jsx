@@ -9,7 +9,7 @@ const Slider = () => {
   const slides = [
     {
       id: 1,
-      icon: <FaRocket size={48} className="text-white" />,
+      icon: <FaRocket className="text-white" />,
       headline: "Innovative Software, Tailored for Your Business",
       description:
         "From enterprise applications to custom software, TriAxis Technology delivers cutting-edge solutions designed to streamline your operations and boost productivity.",
@@ -18,7 +18,7 @@ const Slider = () => {
     },
     {
       id: 2,
-      icon: <FaShieldAlt size={48} className="text-white" />,
+      icon: <FaShieldAlt className="text-white" />,
       headline: "Empowering You with Next-Level Security",
       description:
         "Protect what matters most. Our cybersecurity services safeguard your data, infrastructure, and digital assets with proven strategies.",
@@ -27,7 +27,7 @@ const Slider = () => {
     },
     {
       id: 3,
-      icon: <FaGraduationCap size={48} className="text-white" />,
+      icon: <FaGraduationCap className="text-white" />,
       headline: "Building Skills, Shaping Tomorrow",
       description:
         "Our expert-led training programs in software and security empower teams and individuals to thrive in the ever-evolving tech world.",
@@ -37,7 +37,7 @@ const Slider = () => {
   ];
 
   return (
-    <div className="w-full cursor-grab active:cursor-grabbing relative">
+    <div className="w-full cursor-grab active:cursor-grabbing relative" style={{ height: '70vh' }}>
       <Swiper
         slidesPerView={1}
         spaceBetween={0}
@@ -49,34 +49,37 @@ const Slider = () => {
           bulletActiveClass: "swiper-pagination-bullet-active",
         }}
         modules={[Pagination]}
-        className="w-full"
+        className="w-full h-full"
       >
         {slides.map((slide) => (
-          <SwiperSlide key={slide.id}>
+          <SwiperSlide key={slide.id} className="h-full">
             <div 
-              className="relative w-full h-96 bg-cover bg-center"
+              className="relative w-full h-full bg-cover bg-center"
               style={{ backgroundImage: `url(${slide.bgImg})` }}
             >
-              <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
-              <div className="relative z-10 w-full h-full flex flex-col items-center justify-center p-8 text-center">
-                <div className="mb-6">{slide.icon}</div>
-                <h2 className="text-3xl font-bold mb-4 text-white">
+              <div className="absolute inset-0 bg-black/60 " />
+              <div className="relative z-10 w-full h-full flex flex-col items-center justify-center p-4 sm:p-6 md:p-8 text-center">
+                <div className="mb-3 sm:mb-4 md:mb-6">
+                  {React.cloneElement(slide.icon, { 
+                    size: window.innerWidth < 640 ? 32 : 48 
+                  })}
+                </div>
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3 md:mb-4 text-white px-2">
                   {slide.headline}
                 </h2>
-                <p className="text-lg text-white/90 max-w-2xl mb-8">
+                <p className="text-sm sm:text-base md:text-lg text-white/90 max-w-xs sm:max-w-md md:max-w-2xl mb-3 sm:mb-4 md:mb-6">
                   {slide.description}
                 </p>
-                <button className="px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors flex items-center gap-2">
+                <button className="px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors flex items-center gap-2 text-sm sm:text-base">
                   👉 {slide.cta}
                 </button>
               </div>
             </div>
           </SwiperSlide>
         ))}
-        <div className="swiper-pagination !left-1/2 !-translate-x-1/2 !bottom-4 !w-auto"></div>
+        <div className="swiper-pagination !left-1/2 !-translate-x-1/2 !bottom-2 sm:!bottom-4 !w-auto" />
       </Swiper>
-      
-      {/* Custom CSS for red pagination dots */}
+
       <style jsx global>{`
         .swiper-pagination {
           display: flex;
@@ -86,13 +89,20 @@ const Slider = () => {
         .swiper-pagination-bullet {
           background: white;
           opacity: 0.6;
-          width: 10px;
-          height: 10px;
-          margin: 0 5px !important;
+          width: 8px;
+          height: 8px;
+          margin: 0 4px !important;
         }
         .swiper-pagination-bullet-active {
-          background: #dc2626; /* red-600 */
+          background: #dc2626;
           opacity: 1;
+        }
+        @media (min-width: 640px) {
+          .swiper-pagination-bullet {
+            width: 10px;
+            height: 10px;
+            margin: 0 5px !important;
+          }
         }
       `}</style>
     </div>
