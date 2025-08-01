@@ -14,7 +14,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-100 text-gray-700 pt-12 pb-6 px-4">
+    <footer className="bg-gray-900 text-gray-100 pt-12 pb-6 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Offices Section - 4 columns */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
@@ -110,35 +110,35 @@ const Footer = () => {
           <div className="flex justify-center space-x-6 mb-6">
             <a
               href="#"
-              className="text-gray-600 hover:text-blue-700 text-2xl"
+              className="text-gray-100 hover:text-blue-700 text-2xl"
               aria-label="LinkedIn"
             >
               <FaLinkedin />
             </a>
             <a
               href="#"
-              className="text-gray-600 hover:text-blue-700 text-2xl"
+              className="text-gray-100 hover:text-blue-700 text-2xl"
               aria-label="Facebook"
             >
               <FaFacebook />
             </a>
             <a
               href="#"
-              className="text-gray-600 hover:text-blue-700 text-2xl"
+              className="text-gray-100 hover:text-blue-700 text-2xl"
               aria-label="YouTube"
             >
               <FaYoutube />
             </a>
             <a
               href="#"
-              className="text-gray-600 hover:text-blue-700 text-2xl"
+              className="text-gray-100 hover:text-blue-700 text-2xl"
               aria-label="Twitter"
             >
               <FaTwitter />
             </a>
             <a
               href="#"
-              className="text-gray-600 hover:text-blue-700 text-2xl"
+              className="text-gray-100 hover:text-blue-700 text-2xl"
               aria-label="Instagram"
             >
               <FaInstagram />
@@ -151,7 +151,7 @@ const Footer = () => {
               <FaCopyright className="mr-1" />
               <span>2025 TriAxis Technology. All Rights Reserved.</span>
             </div>
-            <div className="mt-1 text-xs text-gray-500">
+            <div className="mt-1 text-xs text-gray-300">
               Powered by TriAxis Technology Web Team.
             </div>
           </div>
