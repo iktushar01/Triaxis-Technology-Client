@@ -60,8 +60,8 @@ const WhatWeOffer = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">What We Offer</h2>
-          <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-3xl font-bold text-red-600 sm:text-4xl">What We Offer</h2>
+          <p className="mt-4 text-xl text-gray-900 max-w-3xl mx-auto">
             At TriAxis Technology, we provide innovative solutions and expert services to help businesses stay secure, efficient, and future-ready.
           </p>
         </motion.div>
@@ -80,14 +80,14 @@ const WhatWeOffer = () => {
               whileHover={{ y: -5 }}
               className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col"
             >
-              <div className="text-blue-600 mb-4">
+              <div className="text-red-600 mb-4">
                 {offering.icon}
               </div>
               <h3 className="text-xl font-semibold text-gray-800 mb-3">{offering.title}</h3>
               <p className="text-gray-600 mb-6 flex-grow">{offering.description}</p>
               <a
                 href={offering.link}
-                className="mt-auto text-blue-600 hover:text-blue-800 font-medium inline-flex items-center transition-colors duration-200"
+                className="mt-auto text-red-600 hover:text-red-800 font-medium inline-flex items-center transition-colors duration-200"
               >
                 Learn more
                 <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
