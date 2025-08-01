@@ -4,6 +4,7 @@ import { useInView } from "react-intersection-observer";
 import OurVision from "./OurVision";
 import AchievementSection from "./AchievementSection";
 import Extra from "./Extra";
+import ContactOurTeam from "../Home/ContactOurTeam";
 
 const About = () => {
   const [ref, inView] = useInView({
@@ -74,6 +75,7 @@ const About = () => {
       <OurVision />
       <AchievementSection />
       <Extra />
+      <ContactOurTeam/>
     </div>
   );
 };
