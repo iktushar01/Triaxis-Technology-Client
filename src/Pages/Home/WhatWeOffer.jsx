@@ -86,7 +86,7 @@ const WhatWeOffer = () => {
   };
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-blue-200">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial="hidden"
@@ -95,10 +95,10 @@ const WhatWeOffer = () => {
           variants={fadeInUp}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-2 text-sm font-semibold text-red-600 bg-red-50 rounded-full mb-4">
+          <span className="inline-block px-3 py-1 text-sm font-medium text-[#E63946] bg-[#F8E8E9] rounded-full mb-4">
             Our Services
           </span>
-          <h2 className="text-4xl font-bold text-gray-900 sm:text-5xl">
+          <h2 className="text-4xl text-black font-extrabold sm:text-5xl">
             Comprehensive <span className="text-red-600">Technology Solutions</span>
           </h2>
           <p className="mt-5 text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">

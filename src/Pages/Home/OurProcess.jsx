@@ -77,7 +77,7 @@ const OurProcess = () => {
   };
 
   return (
-    <section className="bg-gradient-to-b from-gray-50 to-white py-20 px-4 sm:px-6 lg:px-8">
+    <section className="bg-gradient-to-b from-white to-blue-200 py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -88,8 +88,8 @@ const OurProcess = () => {
           <span className="inline-block px-3 py-1 text-sm font-medium text-[#E63946] bg-[#F8E8E9] rounded-full mb-4">
             Our Methodology
           </span>
-          <h2 className="text-4xl font-extrabold text-[#1D3557] sm:text-5xl">
-            How We Deliver Excellence
+          <h2 className="text-4xl font-extrabold text-black sm:text-5xl">
+            How We <span className="text-red-600">Deliver Excellence</span>
           </h2>
           <p className="mt-5 max-w-3xl mx-auto text-xl text-gray-600 leading-relaxed">
             Our proven 6-step process ensures we deliver innovative, secure, and
@@ -174,28 +174,6 @@ const OurProcess = () => {
                 </motion.div>
               ))}
             </div>
-          </div>
-        </motion.div>
-
-        {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          viewport={{ once: true }}
-          className="mt-20 text-center"
-        >
-          <div className="bg-white rounded-xl p-8 shadow-lg max-w-4xl mx-auto border border-gray-100">
-            <h3 className="text-2xl font-bold text-[#1D3557] mb-4">
-              Ready to start your project?
-            </h3>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Our process is designed to deliver results. Let's discuss how we
-              can help you achieve your goals.
-            </p>
-            <button className="bg-[#E63946] hover:bg-[#D62E3B] text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
-              Get Started
-            </button>
           </div>
         </motion.div>
       </div>
