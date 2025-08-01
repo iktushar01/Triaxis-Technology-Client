@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { FaBars, FaTimes, FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import { NavLink, useLocation } from 'react-router-dom';
 import logo from "../../assets/logoWhiteBg.jpeg";
@@ -7,14 +7,35 @@ const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState(null);
   const location = useLocation();
+  const navRef = useRef(null);
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setOpenSubmenu(null);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsOpen(false);
+    document.body.style.overflow = 'auto';
+  }, [location]);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
     document.body.style.overflow = isOpen ? 'auto' : 'hidden';
   };
 
-  const toggleSubmenu = (item) => {
-    setOpenSubmenu(openSubmenu === item ? null : item);
+  const handleSubmenuToggle = (itemName) => {
+    setOpenSubmenu(openSubmenu === itemName ? null : itemName);
   };
 
   // NavLink active style
@@ -56,45 +77,56 @@ const NavBar = () => {
   ];
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50">
+    <nav className="bg-white shadow-md sticky top-0 z-50" ref={navRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-24 items-center">
           {/* Logo */}
-          <div className="flex items-center space-x-4 cursor-pointer">
+          <NavLink to="/" className="flex items-center space-x-4 cursor-pointer">
             <img 
               src={logo} 
               alt="Company Logo" 
-              className="h-16 w-auto" 
+              className="h-22 w-auto" 
             />
-          </div>
+          </NavLink>
 
-          {/* Desktop Menu - Show on lg screens and up */}
+          {/* Desktop Menu */}
           <div className="hidden lg:flex items-center space-x-6">
             {navItems.map((item) => (
               <div key={item.name} className="relative group">
                 {item.submenu ? (
-                  <>
-                    <button 
-                      className={`px-3 py-2 text-gray-800 hover:text-[#E63946] transition duration-300 flex items-center cursor-pointer ${
-                        location.pathname.startsWith(item.path) ? activeStyle : ""
-                      }`}
-                      onClick={() => toggleSubmenu(item.name)}
-                      aria-expanded={openSubmenu === item.name}
-                      aria-haspopup="true"
-                    >
-                      {item.name}
-                      {openSubmenu === item.name ? (
-                        <FaChevronUp className="ml-1 text-xs" />
-                      ) : (
-                        <FaChevronDown className="ml-1 text-xs" />
-                      )}
-                    </button>
+                  <div className="relative">
+                    <div className="flex items-center">
+                      <NavLink
+                        to={item.path}
+                        className={({ isActive }) =>
+                          `px-3 py-2 text-gray-800 hover:text-[#E63946] transition duration-300 cursor-pointer flex items-center ${
+                            isActive ? activeStyle : ""
+                          }`
+                        }
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleSubmenuToggle(item.name);
+                        }}
+                      >
+                        {item.name}
+                      </NavLink>
+                      <button
+                        className="ml-1 focus:outline-none"
+                        onClick={() => handleSubmenuToggle(item.name)}
+                        aria-expanded={openSubmenu === item.name}
+                      >
+                        {openSubmenu === item.name ? (
+                          <FaChevronUp className="text-xs" />
+                        ) : (
+                          <FaChevronDown className="text-xs" />
+                        )}
+                      </button>
+                    </div>
                     <div 
-                      className={`absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 ${
-                        openSubmenu === item.name ? 'block' : 'hidden'
-                      } group-hover:block`}
-                      onMouseLeave={() => setOpenSubmenu(null)}
-                      role="menu"
+                      className={`absolute left-0 mt-1 w-48 bg-white rounded-md shadow-lg py-1 z-50 transition-all duration-200 origin-top ${
+                        openSubmenu === item.name ? 'scale-y-100 opacity-100' : 'scale-y-95 opacity-0 invisible'
+                      } group-hover:scale-y-100 group-hover:opacity-100 group-hover:visible`}
+                      onMouseLeave={() => openSubmenu !== item.name && setOpenSubmenu(null)}
                     >
                       {item.submenu.map((subItem) => (
                         <NavLink
@@ -105,19 +137,20 @@ const NavBar = () => {
                               isActive ? 'bg-gray-100' : ''
                             }`
                           }
-                          role="menuitem"
+                          onClick={() => setOpenSubmenu(null)}
                         >
                           {subItem.name}
                         </NavLink>
                       ))}
                     </div>
-                  </>
+                  </div>
                 ) : (
                   <NavLink
                     to={item.path}
                     className={({ isActive }) =>
-                      `px-3 py-2 text-gray-800 hover:text-[#E63946] transition duration-300 cursor-pointer
-                      ${isActive ? activeStyle : ""}`
+                      `px-3 py-2 text-gray-800 hover:text-[#E63946] transition duration-300 cursor-pointer ${
+                        isActive ? activeStyle : ""
+                      }`
                     }
                   >
                     {item.name}
@@ -133,7 +166,7 @@ const NavBar = () => {
             </NavLink>
           </div>
 
-          {/* Mobile menu button - Show on lg screens and below */}
+          {/* Mobile menu button */}
           <div className="lg:hidden flex items-center">
             <button
               onClick={toggleMenu}
@@ -151,7 +184,7 @@ const NavBar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu - Fixed position to prevent content shifting */}
+      {/* Mobile Menu */}
       <div 
         className={`lg:hidden fixed inset-0 z-40 bg-white mt-24 overflow-y-auto transition-all duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
@@ -164,23 +197,36 @@ const NavBar = () => {
             <div key={item.name}>
               {item.submenu ? (
                 <>
-                  <button
-                    onClick={() => toggleSubmenu(item.name)}
-                    className={`flex justify-between w-full px-3 py-2 rounded-md text-base font-medium transition duration-300 cursor-pointer ${
-                      location.pathname.startsWith(item.path) ? mobileActiveStyle : "text-gray-800 hover:bg-gray-100 hover:text-[#E63946]"
-                    }`}
-                    aria-expanded={openSubmenu === item.name}
-                  >
-                    {item.name}
-                    {openSubmenu === item.name ? (
-                      <FaChevronUp className="text-xs mt-1" />
-                    ) : (
-                      <FaChevronDown className="text-xs mt-1" />
-                    )}
-                  </button>
+                  <div className="flex justify-between items-center">
+                    <NavLink
+                      to={item.path}
+                      className={({ isActive }) =>
+                        `flex-1 px-3 py-2 rounded-md text-base font-medium transition duration-300 cursor-pointer ${
+                          isActive ? mobileActiveStyle : "text-gray-800 hover:bg-gray-100 hover:text-[#E63946]"
+                        }`
+                      }
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleSubmenuToggle(item.name);
+                      }}
+                    >
+                      {item.name}
+                    </NavLink>
+                    <button
+                      className="p-2 focus:outline-none"
+                      onClick={() => handleSubmenuToggle(item.name)}
+                    >
+                      {openSubmenu === item.name ? (
+                        <FaChevronUp className="text-xs" />
+                      ) : (
+                        <FaChevronDown className="text-xs" />
+                      )}
+                    </button>
+                  </div>
                   <div 
-                    className={`pl-4 ${openSubmenu === item.name ? 'block' : 'hidden'}`}
-                    role="menu"
+                    className={`pl-4 transition-all duration-200 overflow-hidden ${
+                      openSubmenu === item.name ? 'max-h-96' : 'max-h-0'
+                    }`}
                   >
                     {item.submenu.map((subItem) => (
                       <NavLink
@@ -192,7 +238,6 @@ const NavBar = () => {
                           }`
                         }
                         onClick={toggleMenu}
-                        role="menuitem"
                       >
                         {subItem.name}
                       </NavLink>
