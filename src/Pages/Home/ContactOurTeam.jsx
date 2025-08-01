@@ -121,7 +121,7 @@ const ContactOurTeam = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-br from-gray-50 to-red-50 py-16 px-4 sm:px-6 lg:px-8">
+    <div className="bg-gradient-to-b from-white to-blue-200 py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
