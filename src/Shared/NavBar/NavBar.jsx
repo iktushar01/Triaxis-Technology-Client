@@ -78,7 +78,7 @@ const NavBar = () => {
 
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50" ref={navRef}>
-      <div className="max-w-7xl mx-auto px-4 md:px-0">
+      <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between h-24 items-center">
           {/* Logo */}
           <NavLink to="/" className="flex items-center space-x-4 cursor-pointer">
