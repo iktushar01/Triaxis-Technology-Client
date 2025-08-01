@@ -7,7 +7,7 @@ import Faq from './Faq';
 
 const Home = () => {
     return (
-        <div>
+        <div className='mix-h-screen'>
             <Slider/>
             <WhatWeOffer/>
             <OurProcess/>
