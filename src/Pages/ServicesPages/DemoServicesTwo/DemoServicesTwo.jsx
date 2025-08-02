@@ -78,7 +78,7 @@ const DemoServicesTwo = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-b from-white to-gray-50">
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       {/* Hero Section */}
       <motion.section
         initial={{ opacity: 0 }}
