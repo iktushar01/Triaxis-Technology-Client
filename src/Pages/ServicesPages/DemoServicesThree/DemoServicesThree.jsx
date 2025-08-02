@@ -1,16 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
-  FaRobot,
-  FaNetworkWired,
-  FaDatabase,
-  FaLaptopCode,
-  FaUserShield,
-  FaChartPie
+  FaBrain,
+  FaLockOpen,
+  FaCodeBranch,
+  FaChartBar,
+  FaGlobeAmericas,
+  FaCogs
 } from 'react-icons/fa';
 import { useInView } from 'react-intersection-observer';
 
-const DemoServicesTwo = () => {
+const DemoServicesThree = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.2
@@ -40,40 +40,40 @@ const DemoServicesTwo = () => {
 
   const services = [
     {
-      icon: <FaRobot className="text-red-500 text-4xl" />,
-      title: "AI & Automation",
-      description: "Intelligent systems that streamline operations and enhance decision-making.",
-      image: "https://images.unsplash.com/photo-1677442135136-760c813cd9f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+      icon: <FaBrain className="text-red-500 text-4xl" />,
+      title: "Cognitive Computing",
+      description: "Advanced AI systems that learn and adapt to your business processes.",
+      image: "https://images.unsplash.com/photo-1677442136015-0e5f6ea8f86f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
     },
     {
-      icon: <FaNetworkWired className="text-red-500 text-4xl" />,
-      title: "Network Solutions",
-      description: "Secure and scalable infrastructure for seamless connectivity.",
-      image: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+      icon: <FaLockOpen className="text-red-500 text-4xl" />,
+      title: "Security Consulting",
+      description: "Expert assessment and hardening of your digital infrastructure.",
+      image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
     },
     {
-      icon: <FaDatabase className="text-red-500 text-4xl" />,
-      title: "Data Management",
-      description: "Optimized storage and retrieval systems for your critical information.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+      icon: <FaCodeBranch className="text-red-500 text-4xl" />,
+      title: "DevOps Solutions",
+      description: "Streamlined development pipelines for faster, more reliable releases.",
+      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
     },
     {
-      icon: <FaLaptopCode className="text-red-500 text-4xl" />,
-      title: "Enterprise Software",
-      description: "Custom solutions designed for complex business environments.",
-      image: "https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      icon: <FaUserShield className="text-red-500 text-4xl" />,
-      title: "Identity Management",
-      description: "Secure authentication and access control systems.",
-      image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      icon: <FaChartPie className="text-red-500 text-4xl" />,
-      title: "Business Intelligence",
-      description: "Transform raw data into actionable strategic insights.",
+      icon: <FaChartBar className="text-red-500 text-4xl" />,
+      title: "Predictive Analytics",
+      description: "Harness data to forecast trends and optimize business decisions.",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      icon: <FaGlobeAmericas className="text-red-500 text-4xl" />,
+      title: "Global IT Deployment",
+      description: "Seamless technology implementation across international operations.",
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      icon: <FaCogs className="text-red-500 text-4xl" />,
+      title: "System Integration",
+      description: "Unify disparate technologies into a cohesive operational ecosystem.",
+      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
     }
   ];
 
@@ -89,7 +89,7 @@ const DemoServicesTwo = () => {
         <div className="absolute inset-0 overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-            alt="Advanced technology services"
+            alt="Strategic technology services"
             className="w-full h-full object-cover"
             loading="eager"
           />
@@ -107,19 +107,19 @@ const DemoServicesTwo = () => {
               variants={itemVariants}
               className="inline-block px-4 py-2 text-sm font-semibold text-red-400 bg-red-900/30 rounded-full mb-6 border border-red-400/20"
             >
-              Specialized Solutions
+              Strategic Solutions
             </motion.span>
             <motion.h1
               variants={itemVariants}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6"
             >
-              Advanced <span className="text-red-400">Technology Services</span>
+              Transformative <span className="text-red-400">Technology Services</span>
             </motion.h1>
             <motion.p
               variants={itemVariants}
               className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed"
             >
-              Cutting-edge solutions designed to solve complex business challenges and drive innovation.
+              Next-generation solutions that redefine what's possible for your business.
             </motion.p>
           </motion.div>
         </div>
@@ -136,13 +136,13 @@ const DemoServicesTwo = () => {
             className="text-center mb-16"
           >
             <span className="inline-block px-4 py-2 text-sm font-semibold text-red-600 bg-red-100 rounded-full mb-4">
-              Enterprise Solutions
+              Innovation Services
             </span>
             <h2 className="text-4xl font-bold text-gray-900 sm:text-5xl mb-4">
-              Our <span className="text-red-600">Specialized Services</span>
+              Our <span className="text-red-600">Strategic Offerings</span>
             </h2>
             <p className="mt-5 max-w-3xl mx-auto text-lg text-gray-600 leading-relaxed">
-              Tailored solutions for organizations requiring advanced technological capabilities.
+              Forward-thinking solutions designed to propel your business into the future.
             </p>
           </motion.div>
 
@@ -176,7 +176,7 @@ const DemoServicesTwo = () => {
                   <h3 className="text-xl font-bold text-gray-800 mb-3">{service.title}</h3>
                   <p className="text-gray-600">{service.description}</p>
                   <button className="mt-4 text-red-600 font-medium hover:text-red-800 transition-colors">
-                    Learn more →
+                    Discover more →
                   </button>
                 </div>
               </motion.div>
@@ -194,12 +194,12 @@ const DemoServicesTwo = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6">Need Custom Enterprise Solutions?</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6">Ready for Digital Transformation?</h2>
             <p className="text-xl text-red-100 max-w-3xl mx-auto mb-8">
-              Our specialists can design technology solutions tailored to your organization's unique requirements.
+              Let's discuss how our strategic services can revolutionize your operations.
             </p>
             <button className="px-8 py-3 bg-white text-red-700 rounded-lg font-bold hover:bg-gray-100 transition-colors shadow-lg">
-              Request Consultation
+              Schedule Strategy Session
             </button>
           </motion.div>
         </div>
@@ -208,4 +208,4 @@ const DemoServicesTwo = () => {
   );
 };
 
-export default DemoServicesTwo;
+export default DemoServicesThree;

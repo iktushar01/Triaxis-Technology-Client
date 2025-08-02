@@ -4,6 +4,8 @@ import Home from "../Pages/Home/Home";
 import About from "../Pages/About/About";
 import Contuct from "../Pages/Home/Contuct";
 import DemoServicesOne from "../Pages/ServicesPages/DemoServicesOne/DemoServicesOne";
+import DemoServicesTwo from "../Pages/ServicesPages/DemoServicesTwo/DemoServicesTwo";
+import DemoServicesThree from "../Pages/ServicesPages/DemoServicesThree/DemoServicesThree";
 
 const router = createBrowserRouter([
   {
@@ -28,11 +30,11 @@ const router = createBrowserRouter([
         },
         {
           path:"services/service2",
-          element: <DemoServicesOne/>
+          element: <DemoServicesTwo/>
         },
         {
           path:"services/service3",
-          element: <DemoServicesOne/>
+          element: <DemoServicesThree/>
         }
     ]
   },
