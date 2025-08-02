@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { 
   FaRobot,
   FaBrain,
-  FaChartNetwork,
+//   FaChartNetwork,
   FaDatabase,
   FaCloud,
   FaShieldAlt
@@ -68,7 +68,7 @@ const DemoProductThree = () => {
       badge: "New Release"
     },
     {
-      icon: <FaChartNetwork className="text-red-500 text-4xl" />,
+      icon: <FaBrain className="text-red-500 text-4xl" />,
       name: "PredictX",
       category: "Forecasting Engine",
       description: "Time-series prediction for business metrics",
@@ -101,7 +101,7 @@ const DemoProductThree = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-b from-white to-gray-50">
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       {/* Hero Section */}
       <motion.section
         initial={{ opacity: 0 }}
