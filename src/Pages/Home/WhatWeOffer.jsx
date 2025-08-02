@@ -86,7 +86,7 @@ const WhatWeOffer = () => {
   };
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-blue-200">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-red-200">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial="hidden"
