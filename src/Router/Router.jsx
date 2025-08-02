@@ -10,6 +10,7 @@ import DemoProductOne from "../ProductPages/DemoProductOne/DemoProductOne";
 import DemoProductTwo from "../ProductPages/DemoProductTwo/DemoProductTwo";
 import DemoProductThree from "../ProductPages/DemoProductThree/DemoProductThree";
 import DemoTrainingOne from "../Pages/TrainingPages/DemoTrainingOne/DemoTrainingOne";
+import BlogPage from "../Pages/BlogPage/BlogPage";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
         {
           path:"contact",
           element: <Contuct/>
+        },
+        {
+          path:"blog",
+          element: <BlogPage/>
         },
         {
           path:"services/service1",
@@ -58,7 +63,7 @@ const router = createBrowserRouter([
         },
         {
           path:"training/training2",
-          element: <DemoTrainingOne/>
+          element: <DemoProductTwo/>
         },
         {
           path:"training/training3",
